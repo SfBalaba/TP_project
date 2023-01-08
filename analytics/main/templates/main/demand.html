@@ -1,0 +1,28 @@
+{% extends 'main/base.html'%}
+   <style>
+        body {
+            font-family: Verdana;
+            text-align: center;
+        }
+        .table table{
+            border-collapse: collapse;
+        }
+        .table td{
+            text-align: center;
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 14px;
+        }
+
+    </style>
+{% block title %}Востребованность{% endblock %}
+
+{% block content %}
+<center><h1>Аналитика по зарплатам и городам для профессии {{ name_vacancy }}</h1></center>
+<center><img style="width:50%" src="../../static/img/graph.png"></center>
+<center><h2>Статистика по годам</h2></center>
+<center><div class="table"></div></center>
+<!--<center><h2>Статистика по городам</h2></center>-->
+<!--<center><div class="table">{{ table2 }}</div></center>-->
+
+{% endblock %}
