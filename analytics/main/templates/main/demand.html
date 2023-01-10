@@ -1,28 +1,46 @@
 {% extends 'main/base.html'%}
-   <style>
-        body {
-            font-family: Verdana;
-            text-align: center;
-        }
-        .table table{
-            border-collapse: collapse;
-        }
-        .table td{
-            text-align: center;
-            padding: 5px;
-            border: 1px solid black;
-            font-size: 14px;
-        }
 
-    </style>
 {% block title %}Востребованность{% endblock %}
 
 {% block content %}
-<center><h1>Аналитика по зарплатам и городам для профессии {{ name_vacancy }}</h1></center>
-<center><img style="width:50%" src="../../static/img/graph.png"></center>
-<center><h2>Статистика по годам</h2></center>
-<center><div class="table"></div></center>
-<!--<center><h2>Статистика по городам</h2></center>-->
-<!--<center><div class="table">{{ table2 }}</div></center>-->
+<style>
+        body p{
 
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        body h1, h2{
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        body h2{
+            font-style: italic;
+            font-size: 28px;
+        }
+
+    </style>
+<h1>Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h1>
+<img style="width:100%" src="../../static/img/graph1.png">
+<h2>Статистика по годам</h2>
+ <table style="border-collapse: collapse; width: 100%;">
+        {% for row in excel_data %}
+        <tr>
+             {% for cell in row %}
+            <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
+                {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
 {% endblock %}

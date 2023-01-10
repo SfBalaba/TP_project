@@ -15,39 +15,25 @@ section {
   /*align-items: center;*/
   font-size: 18px;
     padding: 50px;
-  width: 70%;
-  background: #f1c40f;
+  /*width: 70%;*/
+  background-color: #27ae60;
 
 
   color: #fff;
 }
 .post-content{
-  display: block;
+  /*display: block;*/
 }
-main{
-  background: #f1c40f;
-}
-.main {
-  background-color: #27ae60;
-}
-.news {
-  background-color: #9b59b6;
-}
-.contacts {
-  background-color: #3498db;
-}
-.portfolio {
-  background-color: #f1c40f;
-}
+
 .wrapper {
   /*position: relative;*/
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 .menu {
   position: fixed;
   left: 0;top: 0;
   z-index: 99;
-  width: 30%;
+  /*width: 30%;*/
   height: 100vh;
   display: flex;
   align-items: start;
@@ -100,10 +86,10 @@ font-family: 'Archivo', sans-serif;
 
 
   z-index: 0;
-    transform: translateX(30%);
+    /*transform: translateX(30%);*/
 }
 .content, .main-footer {
-  transform: translateX(30%);
+  /*transform: translateX(30%);*/
 }
 .main-footer{
 
