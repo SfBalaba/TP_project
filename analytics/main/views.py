@@ -35,21 +35,19 @@ def demand(request):
         for cell in row:
             row_data.append(str(cell.value))
         excel_data.append(row_data)
-    return render(request, 'main/demand.html', {'name_vacancy': vac_name, "excel_data": excel_data})
+    return render(request, 'main/demand.html', {'name_vacancy': vac_name, "excel_data": excel_data[1:], "heads": excel_data[0]})
 
 def geography(request):
     vac_name = "web-разработчик"
     wb = openpyxl.load_workbook('C:/Users/anony/app/analytics/main/static/img/report.xlsx')
     worksheet = wb["Статистика по городам"]
-    print(worksheet)
-
     excel_data = list()
     for row in worksheet.iter_rows():
         row_data = list()
         for cell in row:
             row_data.append(str(cell.value))
         excel_data.append(row_data)
-    return render(request, 'main/geography.html', {'name_vacancy': vac_name, "excel_data": excel_data})
+    return render(request, 'main/geography.html', {'name_vacancy': vac_name, "excel_data": excel_data[1:], "heads": excel_data[0]})
 
 def skills(request):
     vac_name = "web-разработчик"
@@ -62,7 +60,7 @@ def skills(request):
         for cell in row:
             row_data.append(str(cell.value))
         excel_data.append(row_data)
-    return render(request, 'main/skills.html', {'name_vacancy': vac_name, "excel_data": excel_data})
+    return render(request, 'main/skills.html', {'name_vacancy': vac_name,  "excel_data": excel_data[1:], "heads": excel_data[0]})
 
 def latestVacancies(request):
     url = "https://api.hh.ru/vacancies"
@@ -128,9 +126,7 @@ def latestVacancies(request):
         res,
         columns=[
             "name",
-
             "company",
-
             "salary_from",
             "salary_to",
             "salary_currency",
@@ -148,7 +144,6 @@ def latestVacancies(request):
     df = df.drop(["salary_from", "salary_to"], axis=1)
     df = df.head(10)
     json_records = df.reset_index().to_json(orient='records')
-    data = []
     data = json.loads(json_records)
 
     context = {"data": data}

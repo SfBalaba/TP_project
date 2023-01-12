@@ -3,44 +3,35 @@
 {% block title %}Востребованность{% endblock %}
 
 {% block content %}
-<style>
-        body p{
-
-            text-align: center;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            border: 1px solid black;
-            padding: 5px;
-        }
-        body h1, h2{
-            font-family: 'Roboto', sans-serif;
-            font-size: 30px;
-            font-weight: 700;
-        }
-        body h2{
-            font-style: italic;
-            font-size: 28px;
-        }
-
-    </style>
-<h1>Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h1>
+<h1 class="gray-highlight">ИТ-сфера востребована</h1>
+<h2 style="font-weight: 400;">Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h2>
 <img style="width:100%" src="../../static/img/graph1.png">
-<h2>Статистика по годам</h2>
- <table style="border-collapse: collapse; width: 100%;">
+<h2 style="font-weight: 400; margin: 10px 0;">Статистика по годам</h2>
+<table style="border-collapse: collapse;
+            width: 100%;">
+        <thead>
+        <tr>
+            {% for head in heads %}
+                {% if head != "None" %}
+                    <th>{{ head }}</th>
+                {% else %}
+                    <th></th>
+                {% endif %}
+            {% endfor %}
+        </tr>
+      <thead>
+     <tbody>
         {% for row in excel_data %}
         <tr>
              {% for cell in row %}
-            <td style="border: 1px solid black; padding: 5px;">{{ cell }}</td>
-                {% endfor %}
+                {% if cell != "None" %}
+                    <td>{{ cell }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            {% endfor %}
         </tr>
         {% endfor %}
-
+    </tbody>
     </table>
 {% endblock %}

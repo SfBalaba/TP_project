@@ -7,16 +7,17 @@
     <title>{% block title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+             <link rel="stylesheet" href="../../static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
         .nav-link {
             color: white;
         }
         section{
-            width: 700px;
+            width: 800px;
             margin-left: 162px;
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
@@ -26,7 +27,7 @@
             font-size: 18px;
         }
         section h2, h3{
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
         }
         section h3{
@@ -38,6 +39,11 @@
             color: cyan;
         }
 
+ul {
+ list-style: url("../../static/img/list-style (3).png") ;
+}
+
+
     </style>
 
 </head>
@@ -46,7 +52,7 @@
 
     <div class="container-fluid">
               <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <!-- Заголовок меню -->
                     <a href="/"
@@ -70,22 +76,22 @@
 <!--                        </li>-->
                         <li>
                             <a href="/home" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Главная</span>
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Главная</span>
                             </a>
                         </li>
                                 <li>
                             <a href="/demand" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Востребованность</span>
+                                <i class="fs-4 bi-bar-chart-fill"></i> <span class="ms-1 d-none d-sm-inline">Востребованность</span>
                             </a>
                         </li>
                         <li>
                             <a href="/geography" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">География</span>
+                                <i class="fs-4 bi-globe2"></i> <span class="ms-1 d-none d-sm-inline">География</span>
                             </a>
                         </li>
                         <li>
                             <a href="/skills" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Навыки</span>
+                                <i class="fs-4 bi-book-half"></i> <span class="ms-1 d-none d-sm-inline">Навыки</span>
                             </a>
                         </li>
 

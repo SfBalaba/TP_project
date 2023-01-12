@@ -1,32 +1,22 @@
 {% extends 'main/base.html'%}
-<style>
-    .container{
-        background-color: antiquewhite;
-        margin: 10px;
 
-    }
-    .container .salary{
-        font-size: 22px;
-    }
-    .container  .company{
-        font-size: 22px;
-        font-style: italic;
-    }
-</style>
 {% block title %}Последние вакансии{% endblock %}
 
 {% block content %}
-<h3>Последние выкансии</h3>
+<h3 style="background-color: white; width: max-content;">Специалисты востребованы на рынке</h3>
+<h3 style="background-color: white; width: max-content;" >Последние выкансии</h3>
 {% for el in data %}
-<div class="container">
-    <h3>{{ el.name }} </h3>
-    <p style="font-size: 22px;">Оклад: {{ el.salary }} руб.</p>
-    <p style="font-size: 22px;">{{ el.company }}, г.{{ el.area_name }}</p>
+<div class="vacancy_container">
+    <h3 style="text-decoration: underline 5px; text-decoration-color: #E2F700; font-size: 40px;">{{ el.name }} </h3>
+  <p  class="highlight">Оклад: {{ el.salary }} руб.</p>
+    <p class="text">{{ el.company }}, г. {{ el.area_name }}</p>
 <!--    {{ el.discription }}-->
-    <p>Ключевые навыки:<br>
-        {{ el.skills }}</p>
-
+    <p class="text">Ключевые навыки:<br>
+        {{el.skills}}</p>
+    <p class="text">Описание:</p>
+    {{ el.discription|safe }}
+    <p class="text" style="font-size: 14px; color: #6c6666;
+">Дата публикапции: 2022-12-26</p>
 </div>
-{{ el.discription }}
 {% endfor %}
 {% endblock %}
