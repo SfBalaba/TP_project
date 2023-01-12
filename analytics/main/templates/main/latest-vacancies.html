@@ -1,7 +1,32 @@
 {% extends 'main/base.html'%}
-{% block title %}Востребованность{% endblock %}
+<style>
+    .container{
+        background-color: antiquewhite;
+        margin: 10px;
+
+    }
+    .container .salary{
+        font-size: 22px;
+    }
+    .container  .company{
+        font-size: 22px;
+        font-style: italic;
+    }
+</style>
+{% block title %}Последние вакансии{% endblock %}
 
 {% block content %}
 <h3>Последние выкансии</h3>
+{% for el in data %}
+<div class="container">
+    <h3>{{ el.name }} </h3>
+    <p style="font-size: 22px;">Оклад: {{ el.salary }} руб.</p>
+    <p style="font-size: 22px;">{{ el.company }}, г.{{ el.area_name }}</p>
+<!--    {{ el.discription }}-->
+    <p>Ключевые навыки:<br>
+        {{ el.skills }}</p>
 
+</div>
+{{ el.discription }}
+{% endfor %}
 {% endblock %}
