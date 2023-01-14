@@ -3,10 +3,12 @@
 {% block title %}Навыки{% endblock %}
 
 {% block content %}
-<h1 class="gray-highlight">Необходимые навыки</h1> <!--изменить-->
-<h3 style="font-weight: 400; margin: 10px 0;">Аналитика по навыкам для профессии {{ name_vacancy }}</h3>
-<img style="width:70%; display: block; " src="../../static/img/graph3.png">
-<h3 style="font-weight: 400; margin: 10px 0;">Топ-10 высокочастотных навыков, которыми должен обладать каждый {{ name_vacancy }}</h3>
+{{data.html_file|safe}}
+<!--<h1 class="gray-highlight">Необходимые навыки</h1> &lt;!&ndash;изменить&ndash;&gt;-->
+<!--<h3 style="font-weight: 400; margin: 10px 0;">Аналитика по навыкам для профессии {{ name_vacancy }}</h3>-->
+<img style=" display: block; width: 70%;" src="{{ data.file.url }}">
+{{data.html_excel|safe}}
+<!--<h3 style="font-weight: 400; margin: 10px 0;">Топ-10 высокочастотных навыков, которыми должен обладать каждый {{ name_vacancy }}</h3>-->
 <table style="border-collapse: collapse;
             width: 100%;">
         <thead>

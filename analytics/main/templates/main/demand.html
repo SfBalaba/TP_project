@@ -3,10 +3,12 @@
 {% block title %}Востребованность{% endblock %}
 
 {% block content %}
-<h1 class="gray-highlight">ИТ-сфера востребована</h1>
-<h2 style="font-weight: 400;">Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h2>
-<img style="width:100%" src="../../static/img/graph1.png">
-<h2 style="font-weight: 400; margin: 10px 0;">Статистика по годам</h2>
+<!--<h1 class="gray-highlight">ИТ-сфера востребована</h1>-->
+<!--<h2 style="font-weight: 400;">Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h2>-->
+{{ data.html_file|safe }}
+<img style="width:100%" src="{{ data.file.url }}">
+<!--<h2 style="font-weight: 400; margin: 10px 0;">Статистика по годам</h2>-->
+{{ data.html_excel|safe }}
 <table style="border-collapse: collapse;
             width: 100%;">
         <thead>

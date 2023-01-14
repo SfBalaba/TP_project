@@ -2,10 +2,12 @@
 {% block title %}География{% endblock %}
 
 {% block content %}
-<h1 class="gray-highlight">География професии:</h1> <!--изменить-->
-<h3 style="font-weight: 400; margin: 10px 0;">Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h3>
-<img src="../../static/img/graph2.png">
-<h3 style="font-weight: 400; margin: 10px 0;">Статистика по городам</h3>
+{{ data.html_file|safe }}
+<!--<h1 class="gray-highlight">География професии:</h1> &lt;!&ndash;изменить&ndash;&gt;-->
+<!--<h3 style="font-weight: 400; margin: 10px 0;">Аналитика по зарплатам и городам<br> для профессии {{ name_vacancy }}</h3>-->
+<img src="{{ data.file.url }}">
+{{ data.html_excel|safe }}
+<!--<h3 style="font-weight: 400; margin: 10px 0;">Статистика по городам</h3>-->
  <table style="border-collapse: collapse;
             width: 100%;">
         <thead>
