@@ -1,13 +1,12 @@
-import json
-from typing import List, Dict
-import pandas as pd
-import requests
-import concurrent.futures
-import openpyxl
-from django.shortcuts import render
-from jinja2 import FileSystemLoader
-from xlsx2html import xlsx2html
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import FormView
+from pyexpat.errors import messages
 
+from django.shortcuts import render, redirect
+
+from .forms import RegisterForm
 from .models import Demand, Home, Geography, Skills
 from .services import data_from_xlsx, get_latest_vac
 
@@ -43,6 +42,16 @@ def skills(request):
 def latestVacancies(request):
     data = get_latest_vac()
     context = {"data": data}
-
     return render(request, 'main/latest-vacancies.html', context=context)
 
+@login_required
+def profile_view(request):
+    return render(request, 'main/profile.html')
+
+class RegisterView(FormView):
+    form_class = RegisterForm
+    template_name = 'registration/register.html'
+    success_url = reverse_lazy("login")
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

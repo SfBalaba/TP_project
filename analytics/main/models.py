@@ -43,9 +43,8 @@ class Home(models.Model):
 
     def __str__(self):
         return self.title
-#
-#
-# class Buyer(AbstractUser):
+
+# class User(AbstractUser):
 #     ...
 
 

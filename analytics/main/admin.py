@@ -16,3 +16,6 @@ class GeographyAdmin(admin.ModelAdmin):
 @admin.register(Skills)
 class SkillsAdmin(admin.ModelAdmin):
     pass
+
+
+
