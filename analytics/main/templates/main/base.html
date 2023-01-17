@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
              <link rel="stylesheet" href="../../static/css/style.css">
@@ -43,16 +44,49 @@ ul {
  list-style: url("../../static/img/list-style (3).png") ;
 }
 
+header button:hover{
+     color: white;
+
+ }
+.no-display{
+    display: none;
+}
 
     </style>
 
 </head>
+<header class="p-3 bg-light text-white" style="z-index:1;">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
 
+<!--        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">-->
+<!--          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>-->
+<!--          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>-->
+<!--          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>-->
+<!--          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>-->
+<!--          <li><a href="#" class="nav-link px-2 text-white">About</a></li>-->
+<!--        </ul>-->
+
+<!--        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">-->
+<!--          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">-->
+<!--        </form>-->
+       
+        <div class="text-end" style="margin-left: auto;">
+            <a href="{% url 'login' %}"><button class="btn btn-outline-success" type="submit" href="{% url 'login' %}">Войти</button></a>
+            <a href="{% url 'register' %}"><button type="button"  class="btn btn-warning">Регистрация</button></a>
+        </div>
+      </div>
+    </div>
+  </header>
 <body>
+
 
     <div class="container-fluid">
               <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success" >
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <!-- Заголовок меню -->
                     <a href="/"
@@ -107,11 +141,7 @@ ul {
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Последние вакансии</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/register" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-plus-circle"></i> <span class="ms-1 d-none d-sm-inline">Регистрация</span>
-                            </a>
-                        </li>
+
 
                     </ul>
                     <hr>
@@ -121,7 +151,7 @@ ul {
             </div>
             <!-- содержимое -->
             <div class="col py-3">
-                <section>{% block content %}fbhghn{% endblock %}</section>
+                <section>{% block content %}{% endblock %}</section>
 
             </div>
         </div>

@@ -1,51 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}<link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   {% load static %} <link rel="stylesheet" href="{% static 'css/login.css'%}">
-    <title>Facebook-Login or Sign up</title>
-    <!-- <link rel="stylesheet" href="style2.css"> -->
+    <title>Title</title>
 </head>
 <body>
-  <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login" method="post">
-                {% csrf_token %}
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="username" name="username" class="login__input" placeholder="User name / Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" name="password" class="login__input" placeholder="Password">
-				</div>
+<div class="container" style="width: 550px; padding: 20px; ; margin-top: 200px;">
+    <h3 style="font-weight: 900; text-align: center">Авторизация</h3>
+ <form style="width: 500px; margin: auto;" method="post">
+     {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Имя пользователя</label>
+    <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш логин">
 
-                {{form.errors}}
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>
-				<a href="{% url 'register'%}">Sign in</a>
-			</form>
-			<div class="social-login">
-				<h3>log in via</h3>
-				<div class="social-icons">
-					<a href="#" class="social-login__icon fab fa-instagram"></a>
-					<a href="#" class="social-login__icon fab fa-facebook"></a>
-					<a href="#" class="social-login__icon fab fa-twitter"></a>
-				</div>
-			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>
-	</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Введите ваш пароль">
+  </div>
+     {{form.errors}}
+
+  <button type="submit" class="btn btn-primary" style="padding: 10px 20px;font-size: 20px;  margin: 0 auto; margin-top: 20px;
+display: block;">Войти</button>
+        <p style="padding: 0; font-size: 15px; display: block; margin: 20px auto; text-align: center;">Ещё нет своего аккаунта?<a style="padding: 0; display: block; font-size: 15px;  margin: 0 auto;" href="{% url 'register'%}">Зарегистрироваться</a></p>
+</form>
 </div>
 </body>
 </html>

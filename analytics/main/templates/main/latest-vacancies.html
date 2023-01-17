@@ -3,20 +3,53 @@
 {% block title %}Последние вакансии{% endblock %}
 
 {% block content %}
+
+
 <h3 style="background-color: white; width: max-content;">Специалисты востребованы на рынке</h3>
 <h3 style="background-color: white; width: max-content;" >Последние выкансии</h3>
-{% for el in data %}
-<div class="vacancy_container">
-    <h3 style="text-decoration: underline 5px; text-decoration-color: #E2F700; font-size: 40px;">{{ el.name }} </h3>
-  <p  class="highlight">Оклад: {{ el.salary }} руб.</p>
-    <p class="text">{{ el.company }}, г. {{ el.area_name }}</p>
-<!--    {{ el.discription }}-->
-    <p class="text">Ключевые навыки:<br>
-        {{el.skills}}</p>
-    <p class="text">Описание:</p>
-    {{ el.discription|safe }}
-    <p class="text" style="font-size: 14px; color: #6c6666;
-">Дата публикапции: 2022-12-26</p>
+
+    <div id='spinner1' class="spinner-border text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
 </div>
-{% endfor %}
+    <div id="list1">
+
+
+    </div>
+    </div>
+    <script>
+    console.log("dfrfgr")
+    const spinner = document.getElementById('spinner1')
+    const list = document.getElementById('list1')
+    console.log(spinner)
+    $.ajax({
+        type: 'GET',
+        url: '/latest-vacancies/',
+        success: function(res){
+            setTimeout(()=>
+            {
+
+                spinner.classList.add('no-display')
+                console.log('success')
+                list.innerHTML += '{% for el in data %}\n' +
+                    '<div class="vacancy_container">\n' +
+                    '    <h3 style="text-decoration: underline 5px; text-decoration-color: #E2F700; font-size: 40px;">{{ el.name }} </h3>\n' +
+                    '  <p  class="highlight">Оклад: {{ el.salary }} руб.</p>\n' +
+                    '    <p class="text">{{ el.company }}, г. {{ el.area_name }}</p>\n' +
+                    '<!--    {{ el.discription }}-->\n' +
+                    '    <p class="text">Ключевые навыки:<br>\n' +
+                    '        {{el.skills}}</p>\n' +
+                    '    <p class="text">Описание:</p>\n' +
+                    '    {{ el.discription|safe }}\n' +
+                    '    <p class="text" style="font-size: 14px; color: #6c6666;\n' +
+                    '">Дата публикапции: 2022-12-26</p>\n' +
+                    '</div>\n' +
+                    '{% endfor %}'
+            }, 500)
+        },
+        error:function(er){
+            console.log('error')
+        }
+    })
+</script>
+
 {% endblock %}

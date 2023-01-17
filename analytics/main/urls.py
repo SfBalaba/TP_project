@@ -13,7 +13,9 @@ urlpatterns = [
     path("skills/", views.skills, name='skills'),
     path("latest-vacancies/", views.latestVacancies, name='latest-vacancies'),
     path('profile/', profile_view, name='profile'),
-    path('register/', RegisterView.as_view(), name='register')
+    path('register/', RegisterView.as_view(), name='register'),
+    # path('login/', views.login1, name='login1'),
+    # path('register1/', views.register1, name='register')
 ]
 
 if settings.DEBUG:

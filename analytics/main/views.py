@@ -55,3 +55,9 @@ class RegisterView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+# def login1(request):
+#     return render(request, 'registration/login.html')
+#
+# def register1(request):
+#     return render(request, 'registration/register.html')
