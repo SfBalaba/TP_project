@@ -1,0 +1,14 @@
+asgiref==3.6.0
+Babel==2.11.0
+Django==4.1.4
+et-xmlfile==1.1.0
+Jinja2==3.1.2
+MarkupSafe==2.1.2
+openpyxl==3.0.10
+packaging==23.0
+pytz==2022.7.1
+six==1.16.0
+sqlparse==0.4.3
+tzdata==2022.7
+xlrd==1.2.0
+xlsx2html==0.4.1
