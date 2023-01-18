@@ -31,10 +31,8 @@
     <input type="password" class="form-control" name="password2" placeholder="Введите ваш пароль ещё раз">
   </div>
      	{{ form.errors }}
-  <div class="mb-3 form-check">
-<!--    <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
-<!--    <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
-  </div>
+
+     <a style="padding: 0; display: block; font-size: 15px;  margin: 10px 150px;" href="{% url 'login'%}">У меня уже есть аккаунт</a>
   <button type="submit" class="btn btn-primary" style="padding: 10px 20px;font-size: 20px;  margin: 0 auto;
 display: block;">Создать аккаунт</button>
 </form>
